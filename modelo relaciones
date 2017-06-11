@@ -1,0 +1,10 @@
+relacion :: Relaciones -> Agente -> Agente -> Float
+relacion (l:ls) x y | x == 1 && y == 1 = head(l)
+                    | x == 1 && y /= 1 = relacion ls x (y - 1)
+                    | x /= 1 && y == 1 = relacion tail(l) (x - 1) y
+                    | otherwise = relacion ls x (y - 1)
+
+-- este es un modelo de el punto uno pero me da que no funciona porque me pide que la funcion relacion
+-- tenga cuatro argumentos, no se porque si esta aplicada a 3 nada mas, que son relaciones y 2 agentes
+-- y otro error que me da es que me pide que los agentes sean un integer cuando la matriz de relaciones
+-- esta definida con todos float
